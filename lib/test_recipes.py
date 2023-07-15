@@ -82,6 +82,56 @@ if __name__=='__main__':
         session.add(ri)
         session.commit()
 
-    ipdb.set_trace()
+    #RecipeIngredients for copper wire
+    cw_recipe_ingredients = [
+        RecipeIngredient(
+            ingredient_id=ingredients['copper wire'].id,
+            amount=2,
+            recipe_id=recipes[1].id,
+            is_input=False
+        ),
+        RecipeIngredient(
+            ingredient_id=ingredients['copper plate'].id,
+            amount=1,
+            recipe_id=recipes[1].id,
+            is_input=True
+        )
+    ]
+    for ri in cw_recipe_ingredients:
+        session.add(ri)
+        session.commit()
+
+    #RecipeIngredients for smelting
+    smelting_recipe_ingredients = [
+        RecipeIngredient(
+            ingredient_id=ingredients['copper plate'].id,
+            amount=1,
+            recipe_id=recipes[2].id,
+            is_input=False
+        ),
+        RecipeIngredient(
+            ingredient_id=ingredients['copper ore'].id,
+            amount=1,
+            recipe_id=recipes[2].id,
+            is_input=True
+        ),
+        RecipeIngredient(
+            ingredient_id=ingredients['iron plate'].id,
+            amount=1,
+            recipe_id=recipes[3].id,
+            is_input=False
+        ),
+        RecipeIngredient(
+            ingredient_id=ingredients['iron ore'].id,
+            amount=1,
+            recipe_id=recipes[2].id,
+            is_input=True
+        ),
+    ]
+    for ri in smelting_recipe_ingredients:
+        session.add(ri)
+        session.commit()
+
+    # ipdb.set_trace()
 
     session.close()
